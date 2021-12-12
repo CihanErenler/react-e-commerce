@@ -8,7 +8,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 const Header = () => {
   return (
     <header className=" h-16 absolute top-0 left-0 w-full bg-white z-20">
-      <div className="container mx-auto h-full px-12 sm:px-32">
+      <div className="container">
         <nav className="w-full h-full flex justify-between">
           <Logo />
           <ul className="text-md h-full font-semibold text-gray-600 item-center hidden lg:flex">
@@ -22,7 +22,7 @@ const Header = () => {
               );
             })}
           </ul>
-          <div className="hidden lg:block">
+          <div className="hidden lg:flex items-center">
             <CartButtonGroup />
           </div>
           <div className="flex lg:hidden items-center">

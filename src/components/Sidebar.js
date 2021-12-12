@@ -4,12 +4,14 @@ import { FaTimes } from "react-icons/fa";
 import { links } from "../common/constants";
 import { Link } from "react-router-dom";
 import CartButtonGroup from "./CartButtonGroup";
+import { useSidebarContext } from "../context/SidebarContext";
 
 const Sidebar = () => {
-  const isActive = true;
+  const { isSidebarOpen } = useSidebarContext();
+  console.log(isSidebarOpen);
 
   return (
-    <aside className={isActive ? "sidebar sidebar-show" : "sidebar"}>
+    <aside className={isSidebarOpen ? "sidebar sidebar-show" : "sidebar"}>
       <div className="py-4 px-6">
         <div className="flex items-center justify-between">
           <Logo />
