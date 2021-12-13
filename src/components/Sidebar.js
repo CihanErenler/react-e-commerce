@@ -7,15 +7,17 @@ import CartButtonGroup from "./CartButtonGroup";
 import { useSidebarContext } from "../context/SidebarContext";
 
 const Sidebar = () => {
-  const { isSidebarOpen } = useSidebarContext();
-  console.log(isSidebarOpen);
+  const { isSidebarOpen, closeSidebar } = useSidebarContext();
 
   return (
     <aside className={isSidebarOpen ? "sidebar sidebar-show" : "sidebar"}>
       <div className="py-4 px-6">
         <div className="flex items-center justify-between">
           <Logo />
-          <FaTimes className=" text-red-400 hover:text-red-500 text-3xl transition-all duration-300 ease cursor-pointer" />
+          <FaTimes
+            className=" text-red-400 hover:text-red-500 text-3xl transition-all duration-300 ease cursor-pointer"
+            onClick={closeSidebar}
+          />
         </div>
         <div className="mt-12">
           <ul className="text-xl ">
@@ -26,6 +28,7 @@ const Sidebar = () => {
                   <Link
                     to={to}
                     className="text-gray-500 font-semibold uppercase"
+                    onClick={closeSidebar}
                   >
                     {label}
                   </Link>

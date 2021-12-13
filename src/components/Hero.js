@@ -16,7 +16,7 @@ const Hero = () => {
             explicabo sit molestiae aspernatur quisquam! Debitis in magni
             repudiandae nesciunt quaerat id.
           </p>
-          <Button text="See Products" />
+          <Button text="See Products" to="/products" type="link" />
         </div>
         <div className="relative w-full h-2/3 p-10 hidden lg:block">
           <div className="rounded-md overflow-hidden absolute w-64  xl:w-80 z-10 bottom-10 left-0 xl:left-10">

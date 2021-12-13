@@ -1,13 +1,19 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-const Button = ({ text, action }) => {
+const Button = ({ text, to, type, action }) => {
   return (
-    <button
-      className="bg-orange-300 hover:bg-orange-400 py-3 px-12 rounded-md text-yellow-900 uppercase font-light transtion duration-300 ease-in-out"
-      onClick={() => action}
-    >
-      {text}
-    </button>
+    <React.Fragment>
+      {type === "link" ? (
+        <Link to={to} className="btn">
+          {text}
+        </Link>
+      ) : (
+        <button type="button" className="btn" onClick={action}>
+          {text}
+        </button>
+      )}
+    </React.Fragment>
   );
 };
 

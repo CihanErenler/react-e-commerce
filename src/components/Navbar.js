@@ -4,8 +4,11 @@ import { links } from "../common/constants";
 import CartButtonGroup from "./CartButtonGroup";
 import Logo from "./Logo";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { useSidebarContext } from "../context/SidebarContext";
 
 const Header = () => {
+  const { openSidebar } = useSidebarContext();
+
   return (
     <header className=" h-16 absolute top-0 left-0 w-full bg-white z-20">
       <div className="container">
@@ -26,7 +29,7 @@ const Header = () => {
             <CartButtonGroup />
           </div>
           <div className="flex lg:hidden items-center">
-            <button>
+            <button onClick={openSidebar}>
               <GiHamburgerMenu className="text-4xl" />
             </button>
           </div>

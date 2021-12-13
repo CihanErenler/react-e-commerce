@@ -1,10 +1,44 @@
 import React from "react";
+import BreadCrumb from "../components/BreadCrumb";
+import bg from "../assets/bgg.jpg";
 
 const AboutPage = () => {
   return (
-    <div>
-      <h1>About Page</h1>
-    </div>
+    <section className="min-h-screen bg-gray-100 flex flex-col">
+      <div className="container">
+        <BreadCrumb title="About" />
+      </div>
+      <div className="bg-white h-full flex-1 pt-10 flex items-center">
+        <div className="container">
+          <div className="h-full pb-20 xl:p-8 rounded-lg xl:grid grid-cols-2">
+            <div className="rounded-lg overflow-hidden h-96 xl:h-auto">
+              <img
+                src={bg}
+                alt="about-img"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="p-6">
+              <h1 className="text-4xl font-semibold text-center pb-10 text-slate-700">
+                About us
+              </h1>
+              <p className="font-light text-slate-500 leading-8 text-center sm:text-left sm:pl-10">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                Impedit eum optio eligendi quasi ab dicta dignissimos! Enim
+                repellat pariatur eligendi deleniti, id corrupti fugiat maxime
+                asperiores molestiae officiis reiciendis doloribus amet,
+                voluptatum nihil suscipit. Quos repellendus quibusdam odit illum
+                eum modi veritatis fugit, quaerat animi. A earum deserunt,
+                exercitationem, molestias necessitatibus voluptatum facilis quis
+                quae enim optio quam et eveniet expedita! Labore blanditiis,
+                omnis aliquid expedita repellendus sed reprehenderit aut unde
+                iste fuga.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 };
 
