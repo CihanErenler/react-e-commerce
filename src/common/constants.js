@@ -2,7 +2,7 @@ import React from "react";
 import { BsCompass, BsBinoculars, BsBook } from "react-icons/bs";
 
 const products_url = "https://course-api.com/react-store-products";
-const sinle_product_url =
+const single_product_url =
   "https://course-api.com/react-store-single-product?id=";
 
 const links = [
@@ -44,4 +44,4 @@ const services = [
   },
 ];
 
-export { links, services };
+export { links, services, products_url, single_product_url };

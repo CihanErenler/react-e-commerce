@@ -7,7 +7,7 @@ const BreadCrumb = ({ title }) => {
       <Link to="/" className="hover:text-orange-300">
         Home
       </Link>{" "}
-      / <span>{title}</span>
+      / <span className="text-orange-300">{title}</span>
     </div>
   );
 };

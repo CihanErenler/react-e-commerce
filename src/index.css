@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Readex+Pro:wght@200;300;400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Readex+Pro:wght@200;300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&display=swap");
 
-html, body {
-  font-family: 'Readex Pro',
-  sans-serif;
+html,
+body {
+  font-family: "Readex Pro", sans-serif;
 }
 
 @tailwind base;
@@ -18,13 +18,17 @@ html, body {
   @apply bg-orange-300 hover:bg-orange-400 py-3 px-12 rounded-md text-yellow-900 uppercase font-light transition duration-300 ease-in-out;
 }
 
+.title {
+  @apply text-3xl font-bold text-slate-700  text-center py-14;
+}
+
 /* Navbar */
 .nav-item {
   @apply flex items-center justify-center;
 }
 
 .nav-link {
-  @apply hover:text-yellow-600 transition duration-300 ease-in-out font-light;
+  @apply hover:text-orange-300 transition duration-300 ease-in-out font-light;
 }
 
 /* Sidebar */
@@ -33,5 +37,5 @@ html, body {
 }
 
 .sidebar-show {
-  @apply transform translate-x-0 visible opacity-100
+  @apply transform translate-x-0 visible opacity-100;
 }

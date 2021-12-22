@@ -3,8 +3,8 @@ import { services } from "../common/constants";
 
 const Services = () => {
   return (
-    <section className="p-2 md:p-8 text-center">
-      <h1 className="text-3xl font-bold text-slate-700 mb-5">Services</h1>
+    <section className="p-2 md:p-8 md:pt-0 text-center">
+      <h1 className="title">Services</h1>
 
       <div className="container md:grid grid-cols-3 gap-5 pb-16">
         {services.map((service) => {

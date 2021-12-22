@@ -27,7 +27,7 @@ const Sidebar = () => {
                 <li key={id} className="mb-8">
                   <Link
                     to={to}
-                    className="text-gray-500 font-semibold uppercase"
+                    className="text-gray-500 font-semibold uppercase hover:text-orange-300 transition-all duration-300 ease-in-out"
                     onClick={closeSidebar}
                   >
                     {label}

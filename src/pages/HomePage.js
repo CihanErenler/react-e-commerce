@@ -2,11 +2,14 @@ import React from "react";
 import Hero from "../components/Hero";
 import Services from "../components/Services";
 import NewsLetter from "../components/NewsLetter";
+import Spinner from "../components/Spinner";
+import Trending from "../components/Trending";
 
 const HomePage = () => {
   return (
     <div>
       <Hero />
+      <Trending />
       <Services />
       <NewsLetter />
     </div>

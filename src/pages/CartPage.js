@@ -1,10 +1,14 @@
 import React from "react";
+import BreadCrumb from "../components/BreadCrumb";
 
 const CartPage = () => {
   return (
-    <div>
-      <h1>Cart page</h1>
-    </div>
+    <section className="min-h-screen bg-gray-100 ">
+      <div className="container">
+        <BreadCrumb title="Cart" />
+        <h1>Cart page</h1>
+      </div>
+    </section>
   );
 };
 
