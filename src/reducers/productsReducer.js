@@ -13,7 +13,7 @@ const sidebarReaducer = (state, action) => {
       ...state,
       productsLoading: false,
       products: action.payload.data,
-      featuredProducts: action.payload.data.slice(0, 3),
+      featuredProducts: action.payload.data.slice(0, 6),
     };
   }
   if (action.type === PRODUCTS_ERROR) {
