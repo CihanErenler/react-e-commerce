@@ -26,7 +26,7 @@ body {
   @apply text-3xl font-bold text-slate-700  text-center py-14;
 }
 
-.product:hover div {
+.product:hover header div {
   @apply visible opacity-100;
 }
 

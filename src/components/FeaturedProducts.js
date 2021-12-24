@@ -18,7 +18,7 @@ const Trending = () => {
             {productsLoading ? (
               <Spinner />
             ) : (
-              <div className="grid grid-cols-3 gap-4">
+              <div className="md:grid md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {featuredProducts.map((product) => {
                   return <Product key={product.id} {...product} />;
                 })}

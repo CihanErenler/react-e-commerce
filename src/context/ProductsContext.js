@@ -7,6 +7,9 @@ import {
   PRODUCTS_LOADING,
   PRODUCTS_LOADED,
   PRODUCTS_ERROR,
+  SINGLE_PRODUCT_LOADING,
+  SINGLE_PRODUCT_LOADED,
+  SINGLE_PRODUCT_ERROR,
 } from "../common/reducerTypes";
 
 const ProductContext = React.createContext();
@@ -15,6 +18,9 @@ const initialState = {
   productsLoading: false,
   productsError: false,
   products: [],
+  singleProductLoading: false,
+  singleProductLoaded: false,
+  singleProducterror: false,
   featuredProducts: [],
 };
 
@@ -36,12 +42,22 @@ export const ProductProvider = ({ children }) => {
     getProducts(url);
   };
 
+  const getSingleProduct = async (url) => {
+    dispatch({ type: SINGLE_PRODUCT_LOADING });
+    try {
+      const response = await axios.get(url);
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
     fetchProducts();
   }, []);
 
   return (
-    <ProductContext.Provider value={{ ...state }}>
+    <ProductContext.Provider value={{ ...state, getSingleProduct }}>
       {children}
     </ProductContext.Provider>
   );
