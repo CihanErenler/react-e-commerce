@@ -7,8 +7,6 @@ const Trending = () => {
   const { productsLoading, featuredProducts, productsError } =
     useProductContext();
 
-  console.log(featuredProducts);
-
   return (
     <section className="min-h-96 bg-gray-50 pb-14">
       <h1 className="title">Featured Products</h1>

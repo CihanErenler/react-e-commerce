@@ -8,7 +8,6 @@ import {
 } from "../common/reducerTypes";
 
 const productReducer = (state, action) => {
-  console.log("buraya girdi");
   if (action.type === PRODUCTS_LOADING) {
     return { ...state, productsLoading: true };
   }

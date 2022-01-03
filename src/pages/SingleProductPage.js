@@ -8,6 +8,7 @@ import Error from "../components/Error";
 import ProductImages from "../components/ProductImages";
 import Stars from "../components/Stars";
 import { IoMdArrowBack } from "react-icons/io";
+import { formatPrice } from "../common/helpers";
 
 const SingleProductPage = () => {
   const { id: procutId } = useParams();
@@ -38,7 +39,10 @@ const SingleProductPage = () => {
     getSingleProduct(`${url}${procutId}`);
   }, []);
 
-  console.log("loading:", loading, "error :", error);
+  useEffect(() => {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }, []);
 
   if (error) {
     return <Error />;
@@ -66,7 +70,10 @@ const SingleProductPage = () => {
                 <ProductImages images={images} />
                 <div className="p-4">
                   <h1 className="text-2xl text-gray-600 capitalize">{name}</h1>
-                  <Stars />
+                  <Stars stars={stars} />
+                  <p className="text-yellow-700 font-semibold">
+                    {formatPrice(price)}
+                  </p>
                   <p className="text-md text-gray-500 font-light leading-7">
                     {description}
                   </p>
