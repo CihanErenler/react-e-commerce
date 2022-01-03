@@ -18,9 +18,10 @@ const initialState = {
   productsLoading: false,
   productsError: false,
   products: [],
-  singleProductLoading: false,
+  singleProductLoading: true,
   singleProductLoaded: false,
-  singleProducterror: false,
+  singleProductError: false,
+  singleProduct: {},
   featuredProducts: [],
 };
 
@@ -43,11 +44,14 @@ export const ProductProvider = ({ children }) => {
   };
 
   const getSingleProduct = async (url) => {
+    console.log(url);
     dispatch({ type: SINGLE_PRODUCT_LOADING });
     try {
       const response = await axios.get(url);
-      console.log(response);
+      dispatch({ type: SINGLE_PRODUCT_LOADED, payload: response });
     } catch (error) {
+      dispatch({ type: SINGLE_PRODUCT_ERROR });
+      console.log("şimdi siktim işte");
       console.log(error);
     }
   };

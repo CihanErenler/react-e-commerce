@@ -3,28 +3,78 @@ import BreadCrumb from "../components/BreadCrumb";
 import { single_product_url as url } from "../common/constants";
 import { useProductContext } from "../context/ProductsContext";
 import Spinner from "../components/Spinner";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
+import Error from "../components/Error";
+import ProductImages from "../components/ProductImages";
+import Stars from "../components/Stars";
+import { IoMdArrowBack } from "react-icons/io";
 
 const SingleProductPage = () => {
-  const { id } = useParams();
-  console.log(id);
+  const { id: procutId } = useParams();
 
   const {
     getSingleProduct,
-    singleProductLoading,
-    singleProductLoaded,
-    singleProductError,
+    singleProductLoading: loading,
+    singleProductLoaded: loaded,
+    singleProductError: error,
+    singleProduct: product,
   } = useProductContext();
 
+  const {
+    id,
+    name,
+    stars,
+    colors,
+    reviews,
+    description,
+    company,
+    price,
+    stock,
+    category,
+    images,
+  } = product;
+
   useEffect(() => {
-    getSingleProduct(`${url}${id}`);
-  });
+    getSingleProduct(`${url}${procutId}`);
+  }, []);
+
+  console.log("loading:", loading, "error :", error);
+
+  if (error) {
+    return <Error />;
+  }
 
   return (
-    <section className="bg-gray-100 min-h-screen">
+    <section className="bg-gray-100 min-h-screen flex flex-col">
       <div className="container">
         <BreadCrumb title="Single Product" isSingleProduct={true} />
-        <div className=""></div>
+      </div>
+      <div className="bg-white flex-1">
+        <div className="container">
+          {loading ? (
+            <Spinner />
+          ) : (
+            <section>
+              <Link
+                className="inline-flex px-6 py-1 bg-orange-300 text-orange-900 rounded hover:bg-orange-400 mb-4 mt-4 transition-all duration-300 items-center"
+                to="/"
+              >
+                <IoMdArrowBack className="mr-2" />
+                Go to home
+              </Link>
+              <div className="grid grid-cols-2">
+                <ProductImages images={images} />
+                <div className="p-4">
+                  <h1 className="text-2xl text-gray-600 capitalize">{name}</h1>
+                  <Stars />
+                  <p className="text-md text-gray-500 font-light leading-7">
+                    {description}
+                  </p>
+                </div>
+              </div>
+            </section>
+          )}
+        </div>
       </div>
     </section>
   );
