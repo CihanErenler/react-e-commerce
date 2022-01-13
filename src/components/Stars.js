@@ -16,8 +16,8 @@ const Starts = ({ stars }) => {
   });
 
   return (
-    <section>
-      <div className="flex gap-1 text-yellow-500 my-1">{temp}</div>
+    <section className=" my-2">
+      <div className="flex gap-1 text-yellow-500">{temp}</div>
     </section>
   );
 };

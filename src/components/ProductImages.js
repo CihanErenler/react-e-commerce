@@ -4,8 +4,8 @@ const ProductImages = ({ images }) => {
   const [currentImage, setCurrentImage] = useState(0);
 
   return (
-    <section className="w-full">
-      <div className="min-w-[320px] h-[300px] max-w-md">
+    <section className="w-full pb-24">
+      <div className="min-w-[320px] h-[400px] max-w-md rounded-lg overflow-hidden">
         <img
           className="w-full h-full object-cover"
           src={images[currentImage].thumbnails.large.url}
@@ -19,8 +19,8 @@ const ProductImages = ({ images }) => {
               key={image.id}
               className={
                 currentImage === index
-                  ? `w-20 h-20 cursor-pointer shadow-[0_0_0_4px_rgb(235,128,52)]`
-                  : `w-20 h-20 cursor-pointer`
+                  ? `w-20 h-20 cursor-pointer shadow-[0_0_0_4px_rgb(235,128,52)] z-10 rounded-lg overflow-hidden`
+                  : `w-20 h-20 cursor-pointer rounded-lg overflow-hidden`
               }
               onClick={() => setCurrentImage(index)}
             >

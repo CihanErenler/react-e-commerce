@@ -9,6 +9,7 @@ import ProductImages from "../components/ProductImages";
 import Stars from "../components/Stars";
 import { IoMdArrowBack } from "react-icons/io";
 import { formatPrice } from "../common/helpers";
+import AddToCart from "../components/AddToCart";
 
 const SingleProductPage = () => {
   const { id: procutId } = useParams();
@@ -33,6 +34,7 @@ const SingleProductPage = () => {
     stock,
     category,
     images,
+    shipping,
   } = product;
 
   useEffect(() => {
@@ -56,7 +58,9 @@ const SingleProductPage = () => {
       <div className="bg-white flex-1">
         <div className="container">
           {loading ? (
-            <Spinner />
+            <div className="mt-24">
+              <Spinner />
+            </div>
           ) : (
             <section>
               <Link
@@ -68,15 +72,43 @@ const SingleProductPage = () => {
               </Link>
               <div className="grid grid-cols-2">
                 <ProductImages images={images} />
-                <div className="p-4">
-                  <h1 className="text-2xl text-gray-600 capitalize">{name}</h1>
-                  <Stars stars={stars} />
-                  <p className="text-yellow-700 font-semibold">
-                    {formatPrice(price)}
-                  </p>
+                <div className="px-4">
+                  <h1 className="text-2xl text-gray-600 capitalize font-bold">
+                    {name}
+                  </h1>
+                  <div className="flex items-center">
+                    <Stars stars={stars} />
+                    <span className="block ml-3 text-sm text-gray-400">
+                      {reviews} reviews
+                    </span>
+                  </div>
+                  <div className="flex items-center">
+                    <p className="text-orange-900 text-xl my-2">
+                      {formatPrice(price)}
+                    </p>
+                  </div>
+                  <div className="text-gray-500 text-light text-md">
+                    <div className="my-2">
+                      {stock > 0 ? (
+                        <div className="inline-block px-4 bg-green-100 text-green-800 rounded-md border border-green-200">
+                          <span>In stock: </span>
+                          <span>{stock}</span>
+                        </div>
+                      ) : (
+                        <span className="inline-block px-4  bg-red-100 text-red-800 rounded-md border border-red-200">
+                          Out of stock
+                        </span>
+                      )}
+                    </div>
+                    <div className="my-2">
+                      <span className="font-bold">Company: </span>
+                      <span className="capitalize">{company}</span>
+                    </div>
+                  </div>
                   <p className="text-md text-gray-500 font-light leading-7">
                     {description}
                   </p>
+                  {stock > 0 && <AddToCart product={product} />}
                 </div>
               </div>
             </section>

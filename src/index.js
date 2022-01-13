@@ -4,12 +4,14 @@ import "./index.css";
 import App from "./App";
 import { SidebarProvider } from "./context/SidebarContext";
 import { ProductProvider } from "./context/ProductsContext";
-
+import { FilterProvider } from "./context/FilterContext";
 ReactDOM.render(
   <React.StrictMode>
     <SidebarProvider>
       <ProductProvider>
-        <App />
+        <FilterProvider>
+          <App />
+        </FilterProvider>
       </ProductProvider>
     </SidebarProvider>
   </React.StrictMode>,
