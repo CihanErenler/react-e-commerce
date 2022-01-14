@@ -5,7 +5,7 @@ const ListLayout = ({ products }) => {
   return (
     <section>
       {products.map((product) => {
-        return <SingleListProduct {...product} />;
+        return <SingleListProduct key={product.id} {...product} />;
       })}
     </section>
   );

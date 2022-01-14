@@ -3,9 +3,10 @@ import { BsFillGridFill, BsListUl } from "react-icons/bs";
 import { useFilterContext } from "../context/FilterContext";
 
 const ProductsHeader = () => {
-  const { handleLayout, gridView } = useFilterContext();
+  const { handleLayout, gridView, allProducts, sort, updateSort } =
+    useFilterContext();
   return (
-    <section>
+    <section className="flex items-center">
       <div className="mt-2 mb-1">
         <button
           className={
@@ -27,6 +28,16 @@ const ProductsHeader = () => {
         >
           <BsListUl />
         </button>
+      </div>
+      <p className="ml-4">{allProducts.length} products found</p>
+      <div className="ml-auto flex items-center">
+        <p className="mr-2">Sort by: </p>
+        <select name="sort" value={sort} onChange={updateSort}>
+          <option value="lowest-price">price (lowest)</option>
+          <option value="highest-price">price (highest)</option>
+          <option value="name-a-z">name (A-Z)</option>
+          <option value="name-z-a">name (Z-A)</option>
+        </select>
       </div>
     </section>
   );

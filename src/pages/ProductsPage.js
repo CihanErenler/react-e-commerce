@@ -7,23 +7,23 @@ import ProductsHeader from "../components/ProductsHeader";
 import { useFilterContext } from "../context/FilterContext";
 
 const ProductsPage = () => {
-  const { allProducts, gridView } = useFilterContext();
+  const { gridView, filteredProducts } = useFilterContext();
 
   return (
     <section className="bg-gray-100 min-h-screen flex flex-col">
       <div className="container">
         <BreadCrumb title="Products" />
       </div>
-      <div className="bg-white flex-1">
+      <div className="bg-white flex-1 pt-4">
         <div className="container">
           <div className="grid grid-cols-5">
             <Filter />
             <div className="col-span-4">
               <ProductsHeader />
               {gridView ? (
-                <GridLayout products={allProducts} />
+                <GridLayout products={filteredProducts} />
               ) : (
-                <ListLayout products={allProducts} />
+                <ListLayout products={filteredProducts} />
               )}
             </div>
           </div>

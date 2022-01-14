@@ -1,5 +1,5 @@
 import React from "react";
-import { BsCheckLg } from "react-icons/bs";
+import Color from "./Color";
 
 const Colors = ({ colors, currentColor, setCurrentColor }) => {
   return (
@@ -8,18 +8,13 @@ const Colors = ({ colors, currentColor, setCurrentColor }) => {
       <div className="flex gap-2 items-center">
         {colors.map((color, index) => {
           return (
-            <button
+            <Color
               key={index}
-              style={{ backgroundColor: color }}
-              className={
-                color === currentColor
-                  ? `w-6 h-6 rounded-full flex items-center justify-center text-white opacity-1`
-                  : `w-6 h-6 rounded-full flex items-center justify-center text-white opacity-50`
-              }
-              onClick={() => setCurrentColor(color)}
-            >
-              {color === currentColor ? <BsCheckLg className="text-sm" /> : ""}
-            </button>
+              index={index}
+              color={color}
+              currentColor={currentColor}
+              setCurrentColor={() => setCurrentColor(color)}
+            />
           );
         })}
       </div>
