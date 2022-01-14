@@ -8,6 +8,7 @@ import {
   UPDATE_SORT,
   SORT_PRODUCTS,
   UPDATE_FILTER,
+  FILTER_PRODUCTS,
   CLEAR_FILTER,
   CLEAR_FILTER_INPUT,
 } from "../common/reducerTypes";
@@ -40,6 +41,7 @@ export const FilterProvider = ({ children }) => {
   }, [products]);
 
   useEffect(() => {
+    dispatch({ type: FILTER_PRODUCTS });
     dispatch({ type: SORT_PRODUCTS, payload: state.sort });
   }, [products, state.sort, state.filters]);
 

@@ -28,8 +28,6 @@ const Filter = () => {
   const uniqueCategories = getUniqueValues(allProducts, "category");
   const uniqueColors = getUniqueValues(allProducts, "colors");
 
-  console.log(uniqueColors);
-
   return (
     <section>
       <div className="col-span-1 sticky top-0">

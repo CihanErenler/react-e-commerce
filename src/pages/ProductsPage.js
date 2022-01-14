@@ -18,12 +18,23 @@ const ProductsPage = () => {
         <div className="container">
           <div className="grid grid-cols-5">
             <Filter />
+
             <div className="col-span-4">
               <ProductsHeader />
-              {gridView ? (
-                <GridLayout products={filteredProducts} />
+              {filteredProducts.length > 0 ? (
+                <div>
+                  {gridView ? (
+                    <GridLayout products={filteredProducts} />
+                  ) : (
+                    <ListLayout products={filteredProducts} />
+                  )}
+                </div>
               ) : (
-                <ListLayout products={filteredProducts} />
+                <div className="w-full h-full flex justify-center pt-10">
+                  <h2 className="text-2xl text-slate-500 font-bold">
+                    No item to show
+                  </h2>
+                </div>
               )}
             </div>
           </div>

@@ -4,6 +4,7 @@ import {
   MAKE_LIST_LAYOUT,
   UPDATE_SORT,
   SORT_PRODUCTS,
+  FILTER_PRODUCTS,
   UPDATE_FILTER,
   CLEAR_FILTER,
   CLEAR_FILTER_INPUT,
@@ -22,6 +23,36 @@ const filterReducer = (state, action) => {
         maxPrice,
       },
     };
+  }
+
+  if (action.type === FILTER_PRODUCTS) {
+    const { allProducts } = state;
+    let temp = [...allProducts];
+    const { value, category, company, colors, price, shipping } = state.filters;
+
+    if (value) {
+      temp = temp.filter((item) => item.name.toLowerCase().startsWith(value));
+    }
+
+    if (category !== "all") {
+      temp = temp.filter((item) => item.category === category);
+    }
+
+    if (company !== "all") {
+      temp = temp.filter((item) => item.company === company);
+    }
+
+    if (colors !== "all") {
+      temp = temp.filter((item) => item.colors.includes(colors));
+    }
+
+    if (shipping) {
+      temp = temp.filter((item) => item.shipping);
+    }
+
+    temp = temp.filter((item) => item.price <= price);
+
+    return { ...state, filteredProducts: [...temp] };
   }
 
   if (action.type === MAKE_GRID_LAYOUT) {
