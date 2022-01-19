@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 const ProductButtons = ({ amount, increase, decrease }) => {
   return (
@@ -23,9 +22,6 @@ const ProductButtons = ({ amount, increase, decrease }) => {
           +
         </button>
       </section>
-      <Link className="btn-dark w-64" to="/cart">
-        Add to cart
-      </Link>
     </div>
   );
 };

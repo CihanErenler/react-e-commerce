@@ -15,3 +15,7 @@ export const UPDATE_FILTER = "UPDATE_FILTER";
 export const CLEAR_FILTER = "CLEAR_FILTER";
 export const CLEAR_FILTER_INPUT = "CLEAR_FILTER_INPUT";
 export const FILTER_PRODUCTS = "FILTER_PRODUCTS";
+export const ADD_TO_CART = "ADD_TO_CART";
+export const REMOVE_ITEM = "REMOVE_ITEM";
+export const TOGGLE_AMOUNT = "TOGGLE_AMOUNT";
+export const CLEAR_CART = "CLEAR_CART";
