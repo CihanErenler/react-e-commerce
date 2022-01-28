@@ -19,3 +19,4 @@ export const ADD_TO_CART = "ADD_TO_CART";
 export const REMOVE_ITEM = "REMOVE_ITEM";
 export const TOGGLE_AMOUNT = "TOGGLE_AMOUNT";
 export const CLEAR_CART = "CLEAR_CART";
+export const CALCULATE_ALL_CART = "CALCULATE_ALL_CART";

@@ -7,13 +7,14 @@ import { useCartContext } from "../context/CartContext";
 
 const CartButtonGroup = () => {
   const { closeSidebar } = useSidebarContext();
+  const { totalAmount } = useCartContext();
   return (
     <section className="items-center font-normal text-gray-500 flex">
       <Link to="/cart" className="flex mr-3" onClick={closeSidebar}>
         {/* <span className="text-lg mr-1">Cart</span> */}
         <span className="relative mr-4">
           <div className="w-5 h-5 rounded-full text-xs text-white bg-red-400 items-center justify-center flex  absolute -left-2 -bottom-2">
-            0
+            {totalAmount}
           </div>
           <BsBag className="text-2xl" />
         </span>
