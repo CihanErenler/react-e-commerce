@@ -5,7 +5,7 @@ const ProductImages = ({ images }) => {
 
   return (
     <section className="w-full md:pb-24 pb-4">
-      <div className="min-w-full md:min-w-[320px] h-[400px] max-w-md rounded-lg overflow-hidden">
+      <div className="min-w-full h-80 md:min-w-[320px] md:h-[400px] max-w-md rounded-lg overflow-hidden">
         <img
           className="w-full h-full object-cover"
           src={images[currentImage].thumbnails.large.url}
