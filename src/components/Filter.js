@@ -30,7 +30,7 @@ const Filter = () => {
 
   return (
     <section>
-      <div className="col-span-1 sticky top-0">
+      <div>
         <label className="block mb-2 text-gray-600 font-bold">Filters</label>
         <form onSubmit={(e) => e.preventDefault()} className="w-full pt-2 pr-2">
           <div className="relative max-w-[200px] mb-2">

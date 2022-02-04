@@ -15,11 +15,11 @@ body {
 }
 
 .btn {
-  @apply bg-orange-300 hover:bg-orange-400 py-3 px-12 rounded-md text-yellow-900 uppercase font-light transition duration-300 ease-in-out;
+  @apply bg-orange-300 hover:bg-orange-400 py-3 px-12 rounded-md text-yellow-900 uppercase font-normal transition duration-300 ease-in-out w-64 text-sm;
 }
 
 .btn-dark {
-  @apply bg-gray-900 hover:bg-gray-800 py-3 px-12 rounded-md text-white uppercase font-light transition duration-300 ease-in-out w-64;
+  @apply bg-gray-900 hover:bg-gray-800 py-3 px-12 rounded-md text-white uppercase font-normal transition duration-300 ease-in-out w-64 text-sm;
 }
 
 .btn-add {

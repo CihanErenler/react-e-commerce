@@ -16,10 +16,12 @@ const ProductsPage = () => {
       </div>
       <div className="bg-white flex-1 pt-4">
         <div className="container">
-          <div className="grid grid-cols-5">
-            <Filter />
+          <div className="md:grid md:grid-cols-5">
+            <div className="md:col-span-1 md:sticky md:top-0">
+              <Filter />
+            </div>
 
-            <div className="col-span-4">
+            <div className="md:col-span-4">
               <ProductsHeader />
               {filteredProducts.length > 0 ? (
                 <div>

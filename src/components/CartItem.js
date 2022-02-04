@@ -9,7 +9,7 @@ const CartItem = ({ amount, color, id, image, name, price }) => {
   return (
     <section className="mb-4 flex bg-gray-100 p-2 rounded-lg">
       <div className="flex items-center flex-1">
-        <div className="h-24 w-32 overflow-hidden rounded-lg">
+        <div className="md:h-24 md:w-32 w-16 h-16 overflow-hidden rounded-lg">
           <img
             className="w-full h-full object-cover"
             src={image}
@@ -25,17 +25,23 @@ const CartItem = ({ amount, color, id, image, name, price }) => {
               className="w-4 h-4 rounded-full ml-2"
             ></div>
           </div>
+          <div className="block xl:hidden">
+            <h1 className="text-orange-800 font-semibold">
+              {formatPrice(price)}
+            </h1>
+          </div>
         </div>
       </div>
-      <div className="flex-1 flex items-center justify-center">
-        <h1 className="text-orange-800 font-semibold">{formatPrice(price)}</h1>
+      <div className="hidden xl:flex  flex-1 items-center justify-center">
+        <h1 className="text-orange-800 font-semibold hidden xl:block">
+          {formatPrice(price)}
+        </h1>
       </div>
       <div className="text-2xl flex gap-4 flex-1 items-center justify-center">
         <button onClick={() => toggleAmount("dicrease", id)}>-</button>
         <div>{amount}</div>
         <button onClick={() => toggleAmount("increase", id)}>+</button>
       </div>
-      <div className="flex-1"></div>
       <div className="w-24 flex items-center justify-center text-red-500 cursor-pointer">
         <button onClick={() => removeItem(id)}>
           <MdDelete className="text-2xl" />

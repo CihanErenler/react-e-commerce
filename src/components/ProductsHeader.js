@@ -6,7 +6,7 @@ const ProductsHeader = () => {
   const { handleLayout, gridView, allProducts, sort, updateSort } =
     useFilterContext();
   return (
-    <section className="flex items-center">
+    <section className="md:flex md:items-center">
       <div className="mt-2 mb-1">
         <button
           className={
@@ -29,7 +29,7 @@ const ProductsHeader = () => {
           <BsListUl />
         </button>
       </div>
-      <p className="ml-4">{allProducts.length} products found</p>
+      <p className="md:ml-4">{allProducts.length} products found</p>
       <div className="ml-auto flex items-center">
         <p className="mr-2">Sort by: </p>
         <select name="sort" value={sort} onChange={updateSort}>
