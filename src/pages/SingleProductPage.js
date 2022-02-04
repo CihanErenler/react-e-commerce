@@ -70,9 +70,9 @@ const SingleProductPage = () => {
                 <IoMdArrowBack className="mr-2" />
                 Go to home
               </Link>
-              <div className="grid grid-cols-2">
+              <div className="md:grid md:grid-cols-2">
                 <ProductImages images={images} />
-                <div className="px-4">
+                <div className="px-4 mb-20 md:mb-0">
                   <h1 className="text-2xl text-gray-600 capitalize font-bold">
                     {name}
                   </h1>
