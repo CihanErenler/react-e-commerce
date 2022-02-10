@@ -4,7 +4,7 @@ import bg from "../assets/bgg.jpg";
 
 const AboutPage = () => {
   return (
-    <section className="min-h-screen bg-gray-100 flex flex-col">
+    <section className="min-h-screen bg-gray-1020 flex flex-col">
       <div className="container">
         <BreadCrumb title="About" />
       </div>

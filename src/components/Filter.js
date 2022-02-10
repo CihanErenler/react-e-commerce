@@ -29,7 +29,7 @@ const Filter = () => {
   const uniqueColors = getUniqueValues(allProducts, "colors");
 
   return (
-    <section>
+    <section className="sticky top-3">
       <div>
         <label className="block mb-2 text-gray-600 font-bold">Filters</label>
         <form onSubmit={(e) => e.preventDefault()} className="w-full pt-2 pr-2">

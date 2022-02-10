@@ -6,6 +6,7 @@ import Home from "./HomePage";
 import PrivateRoute from "./PrivateRoute";
 import Products from "./ProductsPage";
 import SingleProduct from "./SingleProductPage";
+import WrapperPage from "./WrapperPage";
 
 export {
   About,
@@ -16,4 +17,5 @@ export {
   PrivateRoute,
   Products,
   SingleProduct,
+  WrapperPage,
 };

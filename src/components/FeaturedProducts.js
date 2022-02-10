@@ -2,6 +2,7 @@ import React from "react";
 import { useProductContext } from "../context/ProductsContext";
 import Spinner from "./Spinner";
 import Product from "./Product";
+import Button from "./Button";
 
 const Trending = () => {
   const { productsLoading, featuredProducts, productsError } =
@@ -24,6 +25,9 @@ const Trending = () => {
             )}
           </div>
         )}
+        <div className="flex justify-center">
+          <Button text="All Products" type="link" to="/products" />
+        </div>
       </div>
     </section>
   );

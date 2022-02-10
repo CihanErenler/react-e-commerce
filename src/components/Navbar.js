@@ -5,9 +5,11 @@ import CartButtonGroup from "./CartButtonGroup";
 import Logo from "./Logo";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { useSidebarContext } from "../context/SidebarContext";
+import { useUSerContext } from "../context/UserContext";
 
 const Header = () => {
   const { openSidebar } = useSidebarContext();
+  const { myUser } = useUSerContext();
 
   return (
     <header className=" h-16 absolute top-0 left-0 w-full bg-white z-20">
@@ -24,6 +26,13 @@ const Header = () => {
                 </li>
               );
             })}
+            {myUser && (
+              <li className="nav-item w-24">
+                <Link to="/checkout" className="nav-link">
+                  Checkout
+                </Link>
+              </li>
+            )}
           </ul>
           <div className="hidden lg:flex items-center">
             <CartButtonGroup />

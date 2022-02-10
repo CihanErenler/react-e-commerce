@@ -5,7 +5,7 @@ const Button = ({ text, to, type, action }) => {
   return (
     <React.Fragment>
       {type === "link" ? (
-        <Link to={to} className="btn">
+        <Link to={to} className="btn" style={{ textAlign: "center" }}>
           {text}
         </Link>
       ) : (

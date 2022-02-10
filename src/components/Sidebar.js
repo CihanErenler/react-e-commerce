@@ -5,9 +5,11 @@ import { links } from "../common/constants";
 import { Link } from "react-router-dom";
 import CartButtonGroup from "./CartButtonGroup";
 import { useSidebarContext } from "../context/SidebarContext";
+import { useUSerContext } from "../context/UserContext";
 
 const Sidebar = () => {
   const { isSidebarOpen, closeSidebar } = useSidebarContext();
+  const { myUser } = useUSerContext();
 
   return (
     <aside className={isSidebarOpen ? "sidebar sidebar-show" : "sidebar"}>
@@ -35,6 +37,17 @@ const Sidebar = () => {
                 </li>
               );
             })}
+            {myUser && (
+              <li className="mb-8">
+                <Link
+                  to="/checkout"
+                  className="text-gray-500 font-semibold uppercase hover:text-orange-300 transition-all duration-300 ease-in-out"
+                  onClick={closeSidebar}
+                >
+                  Checkout
+                </Link>
+              </li>
+            )}
           </ul>
         </div>
       </div>

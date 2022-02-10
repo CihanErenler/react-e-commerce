@@ -4,10 +4,12 @@ import {
   TOGGLE_AMOUNT,
   CLEAR_CART,
   CALCULATE_ALL_CART,
+  UPDATE_PAYMENT_CART,
+  HANDLE_PAYMENT,
+  HANDLE_ORDER,
 } from "../common/reducerTypes";
 
 const cartReducer = (state, action) => {
-  console.log(state);
   if (action.type === CALCULATE_ALL_CART) {
     const newList = state.cart.reduce(
       (total, temp) => {
@@ -91,6 +93,57 @@ const cartReducer = (state, action) => {
 
       return { ...state, cart: [...state.cart, newItem] };
     }
+  }
+
+  if (action.type === HANDLE_PAYMENT) {
+    return { ...state };
+  }
+
+  if (action.type === UPDATE_PAYMENT_CART) {
+    const { name, value } = action.payload;
+    let temp = value;
+
+    if (name === "number") {
+      temp = temp
+        .replace(/[^\dA-Z]/g, "")
+        .replace(/(.{4})/g, "$1 ")
+        .trim();
+
+      if (temp.length > 19) temp.substring(temp.length - 1, 1);
+    }
+
+    const newState = {
+      ...state,
+      paymentCard: { ...state.paymentCard, [name]: temp },
+    };
+    return { ...newState };
+  }
+
+  if (action.type === HANDLE_ORDER) {
+    const { actionType, value } = action.payload;
+    console.log("girdi");
+
+    if (actionType === "process") return { ...state, processing: value };
+    if (actionType === "order") {
+      localStorage.clear();
+      return {
+        ...state,
+        ordered: value,
+        cart: [],
+        paymentCard: {
+          name: "",
+          number: "",
+          month: "Month",
+          year: "Year",
+          securityCode: "",
+        },
+      };
+    }
+    if (actionType === "clear") {
+      return { ...state, ordered: value, processing: value };
+    }
+
+    return { ...state };
   }
 };
 

@@ -6,13 +6,14 @@ import {
   TOGGLE_AMOUNT,
   CLEAR_CART,
   CALCULATE_ALL_CART,
+  UPDATE_PAYMENT_CART,
+  HANDLE_ORDER,
 } from "../common/reducerTypes";
 
 const CartContext = React.createContext();
 
 const getLocalStorage = () => {
   const local = localStorage.getItem("cart");
-  console.log(local);
   if (local) return JSON.parse(local);
   return [];
 };
@@ -22,6 +23,15 @@ const initialState = {
   totalItems: 0,
   totalAmount: 0,
   shippingFee: 321,
+  paymentCard: {
+    name: "",
+    number: "",
+    month: "Month",
+    year: "Year",
+    securityCode: "",
+  },
+  ordered: false,
+  processing: false,
 };
 
 const CartProvider = ({ children }) => {
@@ -42,6 +52,17 @@ const CartProvider = ({ children }) => {
     dispatch({ type: CLEAR_CART });
   };
 
+  const updatePayment = (e) => {
+    const { name, value } = e.target;
+
+    dispatch({ type: UPDATE_PAYMENT_CART, payload: { name, value } });
+  };
+
+  const handleOrder = (obj) => {
+    const { actionType, value } = obj;
+    dispatch({ type: HANDLE_ORDER, payload: { actionType, value } });
+  };
+
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(state.cart));
   }, [state.cart]);
@@ -52,7 +73,15 @@ const CartProvider = ({ children }) => {
 
   return (
     <CartContext.Provider
-      value={{ ...state, addToCart, removeItem, toggleAmount, clearCart }}
+      value={{
+        ...state,
+        addToCart,
+        removeItem,
+        toggleAmount,
+        clearCart,
+        updatePayment,
+        handleOrder,
+      }}
     >
       {children}
     </CartContext.Provider>
