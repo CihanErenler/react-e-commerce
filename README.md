@@ -1,6 +1,6 @@
 # ![logo](https://github.com/CihanErenler/react-e-commerce/blob/master/src/assets/hanci.svg) E-commerce website
 
-Hanci is a furniture e-commerce website where the user can search through numerous of products purchese purhase them. The project was builted with React.js
+Hanci is a furniture e-commerce website where the user can search through numerous of products purchese purhase them. The project was built with React.js
 
 # Preview
 
