@@ -12,20 +12,21 @@ const types = [
   { id: 3, logo: paypal },
 ];
 
-const buttonDisable = (data) => {
-  const { name, number, month, year, securityCode } = data;
-
-  return (
-    name !== "" &&
-    number !== "" &&
-    month !== "Month" &&
-    year !== "Year" &&
-    securityCode !== ""
-  );
-};
-
 const PaymentInput = () => {
   const [active, setActive] = useState(null);
+
+  const buttonDisable = (data) => {
+    const { name, number, month, year, securityCode } = data;
+
+    return (
+      name !== "" &&
+      number !== "" &&
+      month !== "Month" &&
+      year !== "Year" &&
+      securityCode !== "" &&
+      active
+    );
+  };
 
   const {
     totalItems,
